@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ChatApp</string>
+    <string name="textWelcome">Welcome</string>
+    <string name="txt_register">Register</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_username">Username</string>
+    <string name="txt_name">Name</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_username_error">Write your username</string>
+    <string name="txt_email_error">Please write your email</string>
+    <string name="txt_password_error">Please write your password</string>
+</resources>

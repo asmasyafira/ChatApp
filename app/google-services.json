@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "691436244745",
+    "firebase_url": "https://foodexamasmaxi.firebaseio.com",
+    "project_id": "foodexamasmaxi",
+    "storage_bucket": "foodexamasmaxi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691436244745:android:4fbc863895c21dde590dd8",
+        "android_client_info": {
+          "package_name": "com.example.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691436244745-9e4vb9i1hta0ko34b1sbecmks5sopef1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatapp",
+            "certificate_hash": "d92897f130806495dd04f1605742adbd5aa1157d"
+          }
+        },
+        {
+          "client_id": "691436244745-deojkeq8dnr8c0r679s4hrn0q45i4109.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwQpxmNBVtiTlWd6jfuuTPgszyeHP9HUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691436244745-deojkeq8dnr8c0r679s4hrn0q45i4109.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691436244745:android:7ba5d7bcae45c002590dd8",
+        "android_client_info": {
+          "package_name": "com.example.foodexamasmaxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691436244745-iqp9h2uopnpnv0rno7mbdjr731hioduq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foodexamasmaxi",
+            "certificate_hash": "70ab4ea791b56a11e56e2eb93ccf11412f43ae9a"
+          }
+        },
+        {
+          "client_id": "691436244745-deojkeq8dnr8c0r679s4hrn0q45i4109.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwQpxmNBVtiTlWd6jfuuTPgszyeHP9HUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691436244745-deojkeq8dnr8c0r679s4hrn0q45i4109.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
