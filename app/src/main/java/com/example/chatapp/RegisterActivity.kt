@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_welcome.*
 
@@ -56,6 +57,39 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this, getString(R.string.txt_password_error), Toast.LENGTH_LONG).show()
         } else{
             //Isinya nnt authentication and post data ke firebase
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+                task ->
+                if (task.isSuccessful){
+                    firebaseUID = mAuth.currentUser!!.uid
+                    refUsers = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUID)
+                    // table nya g kyk table di sql, tapi kek pohon bilangan prima yg satu table bisa bercabang
+                    // collection map punya key(udh pasti string) sama value(bisa tipe data apa aja) jd pake Any
+
+                    val userHashMap = HashMap<String, Any>()
+                    userHashMap["uid"] = firebaseUID
+                    userHashMap["username"] = username
+                    //ini mksdnya img profile
+                    userHashMap["profile"] = ""
+                    userHashMap["cover"] = ""
+                    userHashMap["status"] = "offline"
+                    userHashMap["search"] = username.toLowerCase()
+                    //bisa masukin sosmed apa aja
+                    userHashMap["instagram"] = "https://m.instagram.com"
+                    userHashMap["facebook"] = "https://m.facebook.com"
+                    userHashMap["website"] = "https://www.google.com"
+
+                    refUsers.updateChildren(userHashMap).addOnCompleteListener { task ->
+                        if (task.isSuccessful){
+                            val intent = Intent(this, MainActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
+                            finish()
+                        }
+                    }
+                } else {
+                    Toast.makeText(this, "Error Message : " + task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }
