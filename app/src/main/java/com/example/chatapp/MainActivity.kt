@@ -11,9 +11,11 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.example.chatapp.fragment.ChatFragment
 import com.example.chatapp.fragment.ProfileFragment
 import com.example.chatapp.fragment.SearchFragment
+import com.example.chatapp.model.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -53,6 +55,21 @@ class MainActivity : AppCompatActivity() {
                 viewPagerAdapter.addFragment(ProfileFragment(), "Profile")
                 view_pager_main.adapter = viewPagerAdapter
                 tab_layout_main.setupWithViewPager(view_pager_main)
+            }
+
+        })
+
+        refUsers!!.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val user: Users? = snapshot.getValue(Users::class.java)
+                    tv_username_main.text = user!!.getUsername()
+                    Picasso.get().load(user.getProfile()).placeholder(R.drawable.ic_profile).into(iv_image_main)
+                }
             }
 
         })
@@ -103,6 +120,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return false
+    }
+
+    private fun updateStatus(status: String) {
+        val ref = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUser!!.uid)
+        val hash = HashMap<String, Any>()
+        hash["status"] = status
+        ref!!.updateChildren(hash)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateStatus("online")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        updateStatus("offline")
     }
 }
 

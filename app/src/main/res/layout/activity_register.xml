@@ -37,7 +37,7 @@
         android:layout_marginTop="240dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#FFFFFF"
-        android:text="@string/txt_username"
+        android:hint="@string/txt_username"
         android:inputType="text"
         android:textColor="@android:color/white"
         android:textSize="24sp"
@@ -54,7 +54,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#FFFFFF"
-        android:text="@string/txt_email"
+        android:hint="@string/txt_email"
         android:inputType="textEmailAddress"
         android:textColor="@android:color/white"
         android:textSize="24sp"
@@ -70,7 +70,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#FFFFFF"
-        android:text="@string/txt_password"
+        android:hint="@string/txt_password"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,6 +91,5 @@
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_password" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
