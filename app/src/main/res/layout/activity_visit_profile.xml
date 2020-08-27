@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VisitProfileActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_visit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_cover_visit_profile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cover" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile_visit"
+                android:layout_width="@dimen/_150dp"
+                android:layout_height="@dimen/_150dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="122dp"
+                android:src="@drawable/profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_cover_visit_profile" />
+
+            <TextView
+                android:id="@+id/tv_username_visit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/txt_username"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/iv_profile_visit"
+                app:layout_constraintStart_toStartOf="@+id/iv_profile_visit"
+                app:layout_constraintTop_toBottomOf="@+id/iv_profile_visit" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_second_visit_profile"
+        android:layout_width="405dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="@dimen/_26dp"
+        android:layout_marginEnd="10dp"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_visit_profile">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000">
+
+            <ImageView
+                android:id="@+id/iv_fb_visit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fb" />
+
+            <ImageView
+                android:id="@+id/iv_ig_visit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_fb_visit_profile"
+                app:layout_constraintStart_toEndOf="@+id/iv_fb_visit_profile"
+                app:layout_constraintTop_toTopOf="@+id/iv_fb_visit_profile"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/instagram" />
+
+            <ImageView
+                android:id="@+id/iv_website_visit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_fb_visit_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/iv_ig_visit_profile"
+                app:layout_constraintTop_toTopOf="@+id/iv_fb_visit_profile"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/website" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_send_message_visit_profile"
+        android:layout_width="@dimen/_200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:backgroundTint="#00BCD4"
+        android:text="send message"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_second_visit_profile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

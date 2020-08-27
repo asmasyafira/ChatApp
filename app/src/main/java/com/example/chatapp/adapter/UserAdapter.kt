@@ -2,12 +2,16 @@ package com.example.chatapp.adapter
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chatapp.ChatActivity
 import com.example.chatapp.R
+import com.example.chatapp.VisitProfileActivity
 import com.example.chatapp.model.Chat
 import com.example.chatapp.model.Users
 import com.google.firebase.auth.FirebaseAuth
@@ -32,7 +36,7 @@ class UserAdapter(mContext: Context, mUser: List<Users>, isChatcheck: Boolean) :
         this.isChatcheck = isChatcheck
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(mContext).inflate(R.layout.item_search, parent, false)
         return ViewHolder(view)
     }
@@ -66,9 +70,20 @@ class UserAdapter(mContext: Context, mUser: List<Users>, isChatcheck: Boolean) :
         holder.itemView.setOnClickListener {
             val options = arrayOf<CharSequence>("Sent Message", "Visit Profile")
             val builder : AlertDialog.Builder = AlertDialog.Builder(mContext)
-//            builder.setItems(options, {
-//
-//            })
+            //opsi ketika si itemaView di klik
+            builder.setItems(options, DialogInterface.OnClickListener() { dialog, position ->
+                if (position == 0){ //indexnya "Sent Message
+                    val intent = Intent(mContext, ChatActivity::class.java)
+                    intent.putExtra("visit_id", user.getUID())
+                    mContext.startActivity(intent)
+                }
+                if (position == 1){ //indexnya "Visit Profile"
+                    val intent = Intent(mContext, VisitProfileActivity::class.java)
+                    intent.putExtra("visit_id", user.getUID())
+                    mContext.startActivity(intent)
+                }
+            })
+            builder.show()
         }
     }
 
