@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:backgroundTint="#00BCD4"
-        android:text="send message"
+        android:text="@string/send_message"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
